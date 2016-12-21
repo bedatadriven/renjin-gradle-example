@@ -18,11 +18,15 @@ public class RenjinGradleTest {
         // create a Renjin engine:
         ScriptEngine engine = factory.getScriptEngine();
 
-        engine.eval("print(rnorm(10))");
-
+        // Sanity check
         DoubleVector result = (DoubleVector) engine.eval("1+1");
         assertThat(result.length(), equalTo(1));
         assertThat(result.getElementAsDouble(0), equalTo(2.0));
+
+        // Produce some output
+        engine.eval("print(rnorm(10))");
+
+
     }
 
 }
