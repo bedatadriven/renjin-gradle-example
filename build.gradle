@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+
+// Allow the renjinVersion to be overriden from the command line, for example:
+// ./gradlew -PrenjinVersion=0.8.2244
+
+def renjinVersion = '0.8.3000'
+if(project.hasProperty("renjinVersion")) {
+    renjinVersion = project.property("renjinVersion");
+}
+
+logger.lifecycle("Building with Renjin $renjinVersion")
+
+repositories {
+    maven { url "https://nexus.bedatadriven.com/content/groups/public" }
+}
+
+dependencies {
+    compile "org.renjin:renjin-script-engine:$renjinVersion"
+    testCompile 'junit:junit:4.12'
+}
