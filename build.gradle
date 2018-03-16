@@ -4,7 +4,7 @@ apply plugin: 'java'
 // Allow the renjinVersion to be overriden from the command line, for example:
 // ./gradlew -PrenjinVersion=0.8.2244
 
-def renjinVersion = '0.8.3000'
+def renjinVersion = '0.8.2527'
 if(project.hasProperty("renjinVersion")) {
     renjinVersion = project.property("renjinVersion");
 }
